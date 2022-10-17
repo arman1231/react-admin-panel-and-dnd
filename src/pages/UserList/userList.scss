@@ -1,0 +1,18 @@
+.userList {
+    flex: 4;
+    background-color: #FAFAFB;
+}
+
+.userListEdit {
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    background-color: var(--menuActiveFontColor);
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.userListDelete {
+    color: darkred;
+    cursor: pointer;
+}

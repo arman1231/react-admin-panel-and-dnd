@@ -60,7 +60,6 @@ export default function UserList() {
         email: user.email,
       };
     });
-  console.log(rows);
   return (
     <div className="userList">
       <DataGrid

@@ -3,6 +3,6 @@ import './featuredInfo.scss'
 
 export default function FeaturedInfo() {
   return (
-    <div className='featured'>FeaturedInfo</div>
+    <div className='featured'>Это главный компонент</div>
   )
 }

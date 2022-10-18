@@ -33,14 +33,18 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Основные</h3>
           <ul className="sidebarList">
-            
-            <li className="sidebarListItem">
-              <div className="sidebarListItemContent">
-                <Speed className="sidebarIcon" />
-                Дашборд
-              </div>
-            </li>
-            <li className="sidebarListItem" onClick={() => togleState(openCatalog, setCatalogOpen)}>
+            <Link to="/" className="link">
+              <li className="sidebarListItem">
+                <div className="sidebarListItemContent">
+                  <Speed className="sidebarIcon" />
+                  Дашборд
+                </div>
+              </li>
+            </Link>
+            <li
+              className="sidebarListItem"
+              onClick={() => togleState(openCatalog, setCatalogOpen)}
+            >
               <div className="sidebarListItemContent">
                 <ShoppingCart className="sidebarIcon" />
                 Каталог
@@ -69,21 +73,26 @@ export default function Sidebar() {
                 Заказы
               </div>
             </li>
-            <li className="sidebarListItem" onClick={() => togleState(openClients, setClientsOpen)}>
-              <div className="sidebarListItemContent">
-                <Person className="sidebarIcon" />
-                Клиенты
-              </div>
-              {openClients ? (
-                <div className="sidebarListItemControls">
-                  <ExpandLess />
+            <Link to="/users/" className="link">
+              <li
+                className="sidebarListItem"
+                onClick={() => togleState(openClients, setClientsOpen)}
+              >
+                <div className="sidebarListItemContent">
+                  <Person className="sidebarIcon" />
+                  Клиенты
                 </div>
-              ) : (
-                <div className="sidebarListItemControls">
-                  <ExpandMore />
-                </div>
-              )}
-            </li>
+                {openClients ? (
+                  <div className="sidebarListItemControls">
+                    <ExpandLess />
+                  </div>
+                ) : (
+                  <div className="sidebarListItemControls">
+                    <ExpandMore />
+                  </div>
+                )}
+              </li>
+            </Link>
             <Collapse in={openClients} timeout="auto" unmountOnExit>
               <ul className="sudebarSublist">
                 <li className="sidebarListItem">Список клиентов</li>
@@ -102,7 +111,10 @@ export default function Sidebar() {
                 Промокоды
               </div>
             </li>
-            <li className="sidebarListItem" onClick={() => togleState(openAddress, setOpenAddress)}>
+            <li
+              className="sidebarListItem"
+              onClick={() => togleState(openAddress, setOpenAddress)}
+            >
               <div className="sidebarListItemContent">
                 <Store className="sidebarIcon" />
                 Офлайн точки

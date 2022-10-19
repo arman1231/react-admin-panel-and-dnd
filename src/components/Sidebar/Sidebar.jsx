@@ -15,6 +15,7 @@ import {
   Settings,
   PhoneIphone,
   Description,
+  Architecture,
 } from "@mui/icons-material/";
 import Collapse from "@mui/material/Collapse";
 import { Link } from "react-router-dom";
@@ -38,6 +39,14 @@ export default function Sidebar() {
                 <div className="sidebarListItemContent">
                   <Speed className="sidebarIcon" />
                   Дашборд
+                </div>
+              </li>
+            </Link>
+            <Link to="/planner" className="link">
+              <li className="sidebarListItem">
+                <div className="sidebarListItemContent">
+                  <Architecture className="sidebarIcon" />
+                  Планировщик
                 </div>
               </li>
             </Link>

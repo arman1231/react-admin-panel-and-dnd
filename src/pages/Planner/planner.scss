@@ -1,0 +1,46 @@
+.planner {
+    flex: 4;
+    background-color: #FAFAFB;
+    padding: 20px;
+}
+
+.plannerWrap {
+    display: flex;
+}
+
+.plannerControls {
+    flex: 3;
+}
+.pictures {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px -1px rgba(0,0,0,.15);
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.board {
+    background-color: black;
+    flex: 2;
+    height: calc(100vh - 140px);
+    border-radius: 5px;
+    color: white;
+    padding: 20px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.picture {
+    background-color: black;
+    margin: 20px;
+}
+
+.plannerSaveBtn {
+    margin: 20px;
+}
+
+.plannerDelBtn {
+    background-color: darkred;
+}

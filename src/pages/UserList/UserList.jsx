@@ -3,21 +3,26 @@ import "./userList.scss";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchUsers } from "../../redux/user/userSlice";
 
 export default function UserList() {
-  const [users, setUsers] = useState([]);
+  const dispatch = useDispatch();
+  const users = useSelector((state) => state.user).users;
+  // const [users, setUsers] = useState([]);
   const handleDelete = (id) => {
-    setUsers(users.filter(user => user.id !== id))
-  }
+    // setUsers(users.filter(user => user.id !== id))
+  };
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data);
-      })
-      .catch((err) => {
-        console.warn(err);
-      });
+    dispatch(fetchUsers());
+    // fetch("https://jsonplaceholder.typicode.com/users")
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setUsers(data);
+    //   })
+    //   .catch((err) => {
+    //     console.warn(err);
+    //   });
   }, []);
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -43,7 +48,10 @@ export default function UserList() {
             <Link to={`/user/${params.row.id}`}>
               <button className="userListEdit">Edit</button>
             </Link>
-            <DeleteIcon className="userListDelete" onClick={() => handleDelete(params.row.id)} />
+            {/* <DeleteIcon
+              className="userListDelete"
+              onClick={() => handleDelete(params.row.id)}
+            /> */}
           </>
         );
       },

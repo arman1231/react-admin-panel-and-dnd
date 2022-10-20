@@ -4,7 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { DataGrid } from "@mui/x-data-grid";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchUsers } from "../../redux/user/userSlice";
+import { fetchUsers, removeUser } from "../../redux/user/userSlice";
 
 export default function UserList() {
   const dispatch = useDispatch();
@@ -12,9 +12,11 @@ export default function UserList() {
   // const [users, setUsers] = useState([]);
   const handleDelete = (id) => {
     // setUsers(users.filter(user => user.id !== id))
+    dispatch(removeUser(id))
   };
   useEffect(() => {
     dispatch(fetchUsers());
+    
     // fetch("https://jsonplaceholder.typicode.com/users")
     //   .then((res) => res.json())
     //   .then((data) => {
@@ -48,10 +50,10 @@ export default function UserList() {
             <Link to={`/user/${params.row.id}`}>
               <button className="userListEdit">Edit</button>
             </Link>
-            {/* <DeleteIcon
+            <DeleteIcon
               className="userListDelete"
               onClick={() => handleDelete(params.row.id)}
-            /> */}
+            />
           </>
         );
       },
